@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio Site</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      body, html {
+        font-family: 'Inter', sans-serif;
+        background-color: #04052a;
+        color: #ffffff;
+        position: relative;
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+      .gradient-effect {
+        position: fixed;
+        inset: 0;
+        z-index: 30;
+        pointer-events: none;
+        transition: all 300ms;
+        background: radial-gradient(500px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(83, 50, 125, 0.3), transparent 100%);
+      }
+      h2 { font-size: 1.5rem; }
+      h3 { font-size: 1.2rem; }
+      p, a, figcaption { font-size: 0.9rem; }
+      nav {
+        background: linear-gradient(to right, #1f1f3b, #191933);
+        padding: 1rem 0;
+      }
+      .layout-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+        height: 100vh;
+        position: fixed;
+        width: 100%;
+        max-width: 1130px;
+        padding: 0 1rem;
+      }
+      .left-column {
+        height: 100vh;
+        padding: 2rem 0;
+      }
+      .right-column {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 2rem 1rem 2rem 0;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .right-column::-webkit-scrollbar {
+        display: none;
+      }
+      h2 {
+        font-family: 'Vollkorn', serif;
+      }
+      .nav-link {
+        color: #f5f5f5;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        opacity: 0.7;
+        font-family: 'Inter', sans-serif;
+        display: inline-block;
+      }
+      .nav-link:hover, .nav-link.active {
+        color: #dfba38;
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      .content-box {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+      }
+      .content-box:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+      }
+      .project-page {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #04052a;
+        z-index: 1000;
+        overflow-y: auto;
+        padding: 2rem;
+      }
+      .project-content {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: rgba(255, 255, 255, 0.25);
+        padding: 2rem;
+        border-radius: 8px;
+      }
+      .back-button {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: white;
+        color: #04052a;
+        text-decoration: none;
+        border-radius: 4px;
+        margin-top: 1rem;
+        transition: all 0.3s ease;
+      }
+      .back-button:hover {
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+      * {
+        color: white;
+      }
+      @media (max-width: 768px) {
+        .layout-grid {
+          grid-template-columns: 1fr;
+        }
+        .right-column {
+          height: auto;
+          overflow-y: visible;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gradient-effect"></div>
+    <main class="container">
+      <div class="layout-grid">
+        <div class="left-column">
+          <section id="intro">
+            <hgroup>
+              <h2><p style="font-size: 40px;">Welcome!</p></h2>
+              <h2><p style="font-size: 30px; margin-bottom: 0.5rem;">Here to see my work?</p></h2>
+            </hgroup>
+            <div style="line-height: 1.2;">
+              <p style="margin-bottom: 0.5rem;">Sze Chit Janice, Yeung</p>
+              <p style="margin-bottom: 0.5rem;">5th March, 2005</p>
+              <p style="margin-bottom: 0.5rem;">BCIT Marketing Management</p>
+              <p style="margin-bottom: 0.5rem;">English | Chinese | Mandarin</p>
+              <p style="margin-bottom: 0.5rem;">Check my Socials below for more content!</p>
+            </div>
+            <div style="margin: 2rem 0;">
+              <div style="margin-bottom: 1rem;"><a href="#about" class="nav-link">About</a></div>
+              <div style="margin-bottom: 1rem;"><a href="#portfolio" class="nav-link">Portfolio</a></div>
+              <div style="margin-bottom: 1rem;"><a href="#content" class="nav-link">Content</a></div>
+            </div>
+            <h3>Contact Information</h3>
+            <p>Email: janiceyeung.sc@gmail.com</p>
+            <p>
+              <a href="https://www.linkedin.com/in/janice-yeung-432248290/" target="_blank">LinkedIn</a> • 
+              <a href="https://www.instagram.com/jay_yeung0305?igsh=NTkyNnd6aGEzMmR6&utm_source=qr" target="_blank">Instagram</a>
+            </p>
+          </section>
+        </div>
+        <div class="right-column">
+          <section id="about">
+            <h2 class="section-heading" style="font-family: 'Vollkorn', serif;">About Me</h2>
+            <p>I'm Janice, I also go by Jay, and I'm from Hong Kong!</p>
+            <p>I'm Janice, I also go by Jay, and I'm from Hong Kong!
+
+            I've worked part time in a Disney resort buffet and I learned how to handle high stress situations. I've also studied digital marketing in BCIT and have done projects for both schoolwork and the Enactus club, I have done many creatives for my teams.
+
+            In my spare time I do custom digital art commissions online so I have experience working in both groups and one on one. I picked up a lot of soft skills when it comes to communication.</p>
+          </section>
+          <section id="portfolio">
+            <hgroup>
+              <h2>Portfolio</h2>
+              <h3>Gallery of my work</h3>
+            </hgroup>
+            <p>Here are a few projects I've worked on in the past, Click on each box to see the full gallery!</p>
+            <div class="content-box" onclick="showProject('righteous')">
+              <h3>Righteous Gelato</h3>
+              <p>Integrate Marketing Strategy project I worked on in BCIT, I had the pleasure to not only involve myself in doing reasearch of the brand but also in creating mockups and ad creatives to help visualize our team's ideas.</p>
+            </div>
+            <div class="content-box" onclick="showProject('huer')">
+              <h3>Huer</h3>
+              <p>A Markeyting project I did in my second year in BCIT. I helped make all the visuals, including slides, video editing, animation as well as research regarding the brand, their audience and industry!</p>
+            </div>
+            <div class="content-box" onclick="showProject('ecometer')">
+              <h3>Ecometer</h3>
+              <p>EcoMeter is one of the cases picked up by BCIT Enactus club, where our goal is to be a reliable all in one restaurant resource for consumers who are interested in dining sustainably!
+
+              I've been tasked to help build the Integrated Marketing Strategy as well as being the Designer for all marketing materials.</p>
+            </div>
+            <div class="content-box" onclick="showProject('patebo')">
+              <h3>PateBo</h3>
+              <p>PateBo is a sandwich shop opened by Vietnamese locals that serves Bánh mì in Winnipeg, MB.
+              It is a small shop that serves in small food stall events, and I was invited to help create their opening advertisment!</p>
+            </div>
+            <div class="content-box" onclick="showProject('sportscardsunited')">
+              <h3>Sports Cards United</h3>
+              <p>During my internship, Sports Cards United is one of my main clients, and I was tasked with updating their website, creating content as well as prints for the brand. Click in here to see my work and the impact I helped to make!</p>
+            </div>
+          </section>
+          <section id="content">
+            <hgroup>
+              <h2>Content</h2>
+              <h3>Thoughts & Reflections</h3>
+            </hgroup>
+            <p>I share my thoughts on design, creativity, and personal growth.</p>
+            <div class="content-box" onclick="showProject('blog1')">
+              <h3>First day of Internship!</h3>
+              <p>Excited to share my first two days as a marketing intern at Popcorn Media! So far, I've been working with Joey Mai diving into influencer research and content creation for social media. It’s been a great opportunity to apply my skills and learn from an experienced team..... Read more</p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+        <div id="righteous" class="project-page">
+      <div class="gradient-effect"></div>
+      <div class="project-content">
+        <h2>Righteous Gelato</h2>
+        <p>A comprehensive marketing strategy project for Righteous Gelato, focusing on brand development and creative advertising solutions.</p>
+        <div class="gallery">
+          <!-- Add your gallery images here -->
+          <img src="https://source.unsplash.com/random/800x600?gelato" alt="Righteous Gelato Project">
+          <img src="https://source.unsplash.com/random/800x600?icecream" alt="Righteous Gelato Marketing">
+        </div>
+        <a href="#" class="back-button" onclick="hideProject('righteous')">Back</a>
+      </div>
+    </div>
+
+    <div id="huer" class="project-page">
+      <div class="gradient-effect"></div>
+      <div class="project-content">
+        <h2>Huer</h2>
+        <p>A marketing project showcasing brand research, audience analysis, and creative visual solutions including slides, video editing, and animation.</p>
+        <div class="gallery">
+          <img src="https://source.unsplash.com/random/800x600?design" alt="Huer Project">
+          <img src="https://source.unsplash.com/random/800x600?marketing" alt="Huer Marketing">
+        </div>
+        <a href="#" class="back-button" onclick="hideProject('huer')">Back</a>
+      </div>
+    </div>
+
+    <div id="ecometer" class="project-page">
+      <div class="gradient-effect"></div>
+      <div class="project-content">
+        <h2>Ecometer</h2>
+        <p>An integrated marketing strategy project for sustainable dining, including brand development and marketing material design for BCIT Enactus club.</p>
+        <div class="gallery">
+          <img src="https://source.unsplash.com/random/800x600?sustainable" alt="Ecometer Project">
+          <img src="https://source.unsplash.com/random/800x600?eco" alt="Ecometer Marketing">
+        </div>
+        <a href="#" class="back-button" onclick="hideProject('ecometer')">Back</a>
+      </div>
+    </div>
+
+    <div id="patebo" class="project-page">
+      <div class="gradient-effect"></div>
+      <div class="project-content">
+        <h2>PateBo</h2>
+        <p>Opening advertisement creation for a Vietnamese sandwich shop specializing in Bánh mì, showcasing local flavors and culture.</p>
+        <div class="gallery">
+          <img src="https://source.unsplash.com/random/800x600?sandwich" alt="PateBo Project">
+          <img src="https://source.unsplash.com/random/800x600?food" alt="PateBo Marketing">
+        </div>
+        <a href="#" class="back-button" onclick="hideProject('patebo')">Back</a>
+      </div>
+    </div>
+
+    <div id="sportscardsunited" class="project-page">
+      <div class="gradient-effect"></div>
+      <div class="project-content">
+        <h2>Sports Cards United</h2>
+        <p>Marketing project where I helped a client develop their visual branding and create content, leading to a growth in their website and socials.</p>
+        <div class="gallery">
+          <img src="https://source.unsplash.com/random/800x600?design" alt="Sports Cards United Project">
+          <img src="https://source.unsplash.com/random/800x600?marketing" alt="Sports Cards United Marketing">
+        </div>
+        <a href="#" class="back-button" onclick="hideProject('sportscardsunited')">Back</a>
+      </div>
+    </div>
+    
+    <div id="blog1" class="project-page">
+      <div class="gradient-effect"></div>
+      <div class="project-content">
+        <h2>First Day of Internship!</h2>
+        <p>Excited to share my first two days as a marketing intern at Popcorn Media! So far, I've been working with Joey Mai diving into influencer research and content creation for social media. It’s been a great opportunity to apply my skills and learn from an experienced team.</p>
+
+          <p>My goals during this internship are to improve my visual branding skills, build a solid work-life balance, and leave a lasting impact by helping create an intern guide. I'm also looking forward to learning more about marketing strategies and soft skills along the way, as well as update my portfolio website with all this new content!</p>
+
+          <p>One of the highlights has been bonding with colleagues over lunch—it's been a great way to connect outside of the office, and I’ve found so many places to relax at in my downtime!</p>
+
+        Looking forward to the journey ahead!</p>
+        <p>You can check out my <a href="https://www.linkedin.com/feed/update/urn:li:activity:7311200364572078080/" target="_blank">blog on Linkdin</a> for more content! </p>
+      
+        <a href="#" class="back-button" onclick="hideProject('blog1')">Back</a>
+      </div>
+    </div>
+    <script>
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      function showProject(id) {
+        document.getElementById(id).style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+
+      function hideProject(id) {
+        document.getElementById(id).style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+
+      function updateActiveMenu() {
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          const scrollPosition = window.scrollY + 300;
+
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            navLinks.forEach(link => {
+              if (link.getAttribute('href') === `#${section.id}`) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const rightColumn = document.querySelector('.right-column');
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement && rightColumn.contains(targetElement)) {
+            const relativeOffset = targetElement.offsetTop - rightColumn.offsetTop;
+            rightColumn.scrollTo({
+              top: relativeOffset - 20,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      window.addEventListener('scroll', updateActiveMenu);
+
+      document.addEventListener('mousemove', (event) => {
+        document.querySelectorAll('.gradient-effect').forEach(gradient => {
+          const rect = gradient.getBoundingClientRect();
+          const x = event.clientX - rect.left;
+          const y = event.clientY - rect.top;
+          gradient.style.setProperty('--mouse-x', `${x}px`);
+          gradient.style.setProperty('--mouse-y', `${y}px`);
+        });
+      });
+    </script>
+  </body>
+</html>
